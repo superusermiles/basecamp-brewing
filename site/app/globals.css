@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #2d5016;
+  --color-secondary: #b87333;
+  --color-accent: #6f7c4b;
+  --color-background: #fff8e7;
+  --color-text: #1a1a1a;
+  --color-muted: #d9d1bf;
+  --font-heading: var(--font-oswald);
+  --font-body: var(--font-source-serif);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --shadow-soft: 0 8px 24px rgba(26, 26, 26, 0.08);
+  --shadow-medium: 0 18px 42px rgba(26, 26, 26, 0.14);
+  --shadow-hard: 0 28px 72px rgba(26, 26, 26, 0.22);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-medium: var(--shadow-medium);
+  --shadow-hard: var(--shadow-hard);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body), serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(184, 115, 51, 0.24);
+}
+
+.prose-balance {
+  text-wrap: balance;
+}
+
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(26, 26, 26, 0.82) 0%, rgba(26, 26, 26, 0.48) 42%, rgba(26, 26, 26, 0.15) 100%);
+}
+
+.texture-overlay {
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.72), rgba(26, 26, 26, 0.72));
+}
+
+.topo-pattern {
+  background-image: radial-gradient(circle at 20% 20%, rgba(184, 115, 51, 0.16) 0, rgba(184, 115, 51, 0.16) 1px, transparent 1px), radial-gradient(circle at 80% 30%, rgba(255, 248, 231, 0.1) 0, rgba(255, 248, 231, 0.1) 1px, transparent 1px), linear-gradient(135deg, rgba(111, 124, 75, 0.16), transparent 55%);
+  background-size: 28px 28px, 34px 34px, cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
