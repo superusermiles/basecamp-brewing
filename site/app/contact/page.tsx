@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactCards, ContactForm, FAQAccordion, MapPlaceholder, StructuredData, VisitFacts } from "@/components/ui";
+import { ContactCards, ContactForm, FAQAccordion, LocationMapCard, StructuredData, VisitFacts } from "@/components/ui";
 import { businessSchema, primaryKeywords, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -83,7 +83,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <MapPlaceholder label="Visit Basecamp Brewing Co." note="On-site parking available. Extra bike parking near the side entrance." />
+          <LocationMapCard title="Visit Basecamp Brewing Co." note="On-site parking available. Extra bike parking near the side entrance." />
         </div>
       </section>
 

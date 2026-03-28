@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { AmenityGrid, FoodHighlightCard, HoursCard, MapPlaceholder, SectionIntro, StructuredData } from "@/components/ui";
+import { AmenityGrid, FoodHighlightCard, HoursCard, LocationMapCard, SectionIntro, StructuredData } from "@/components/ui";
 import { businessSchema, primaryKeywords, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -133,7 +133,7 @@ export default function TaproomPage() {
             <AmenityGrid />
           </div>
           <div className="space-y-6">
-            <MapPlaceholder label="Find us in Queenstown." note="Easy to reach from central Queenstown with on-site parking nearby." />
+            <LocationMapCard title="Find us in Queenstown." note="Easy to reach from central Queenstown with on-site parking nearby." />
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop"

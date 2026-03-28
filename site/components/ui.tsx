@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Clock3,
   Droplets,
+  ExternalLink,
   Leaf,
   MapPin,
   Music2,
@@ -245,26 +246,48 @@ export function AmenityGrid() {
   );
 }
 
-export function MapPlaceholder({ label, note }: { label: string; note: string }) {
+export function LocationMapCard({ title, note }: { title: string; note: string }) {
+  const mapUrl = "https://www.google.com/maps?q=14+Shotover+View+Road,+Queenstown+9300,+New+Zealand&z=14&output=embed";
+  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=14+Shotover+View+Road,+Queenstown+9300,+New+Zealand";
+
   return (
-    <div className="relative min-h-[340px] overflow-hidden rounded-[32px] border border-text/10 bg-text p-6 text-background shadow-medium">
-      <div className="absolute inset-0 opacity-35">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop" alt="Queenstown mountain landscape near the Basecamp Brewing Co. taproom" className="h-full w-full object-cover" />
-      </div>
-      <div className="relative flex h-full flex-col justify-between gap-10">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Map placeholder</p>
-          <h3 className="mt-4 font-heading text-4xl uppercase leading-none">{label}</h3>
-          <p className="mt-4 max-w-md text-base leading-7 text-background/84">Interactive map embed to be added here. For now, show branded placeholder block with address and wayfinding note.</p>
+    <section className="overflow-hidden rounded-[32px] border border-text/10 bg-background shadow-medium">
+      <div className="border-b border-text/8 bg-text px-6 py-5 text-background">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Location</p>
+        <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h3 className="font-heading text-4xl uppercase leading-none">{title}</h3>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-background/82">{note}</p>
+          </div>
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 self-start rounded-full border border-background/20 bg-background/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-background transition hover:border-secondary hover:text-secondary"
+          >
+            Get Directions
+            <ExternalLink className="h-4 w-4" />
+          </a>
         </div>
-        <div className="rounded-[20px] border border-background/15 bg-background/10 p-5 backdrop-blur-sm">
-          <p className="flex items-center gap-3 text-sm uppercase tracking-[0.18em] text-secondary">
+      </div>
+      <div className="relative h-[360px] w-full bg-muted">
+        <iframe
+          title="Map showing Basecamp Brewing Co. at 14 Shotover View Road, Queenstown"
+          src={mapUrl}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="h-full w-full border-0"
+        />
+      </div>
+      <div className="grid gap-4 border-t border-text/8 bg-[#f7efdd] px-6 py-5 text-sm text-text/76 sm:grid-cols-[1.2fr_0.8fr] sm:items-center">
+        <div>
+          <p className="flex items-center gap-3 font-semibold uppercase tracking-[0.18em] text-primary">
             <MapPin className="h-4 w-4" /> 14 Shotover View Road, Queenstown 9300, New Zealand
           </p>
-          <p className="mt-3 text-base leading-7 text-background/80">{note}</p>
         </div>
+        <p>{note}</p>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -358,8 +381,8 @@ export function BeerFilterGrid({ beers }: { beers: BeerItem[] }) {
               type="button"
               onClick={() => setActiveFilter(filter)}
               className={clsx(
-                "rounded-full border px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] transition",
-                activeFilter === filter ? "border-secondary bg-primary text-background" : "border-text/10 bg-background text-text hover:border-secondary hover:text-primary",
+                "rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] transition",
+                activeFilter === filter ? "bg-primary text-background shadow-soft" : "border border-text/10 bg-background text-text/72 hover:border-secondary hover:text-primary",
               )}
             >
               {filter}
@@ -376,41 +399,47 @@ export function BeerFilterGrid({ beers }: { beers: BeerItem[] }) {
   );
 }
 
-export function SustainabilityIcons() {
-  const items = [
-    { title: "Local ingredients first", body: "We source as close to home as possible and build seasonal releases around what fits the region.", icon: <Wheat className="h-5 w-5" /> },
-    { title: "Brewing with intention", body: "Water and process decisions are handled carefully so quality and efficiency rise together.", icon: <Droplets className="h-5 w-5" /> },
-    { title: "Spent grain to local farms", body: "Our spent grain is donated to nearby farms instead of heading to waste.", icon: <Leaf className="h-5 w-5" /> },
-  ];
-
+export function SustainabilityPill({ icon, title, body }: { icon: ReactNode; title: string; body: string }) {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
-      {items.map((item) => (
-        <article key={item.title} className="rounded-[20px] border border-background/12 bg-background/6 p-6 backdrop-blur-sm">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-secondary/35 bg-secondary/12 text-secondary">{item.icon}</div>
-          <h3 className="mt-4 font-heading text-2xl uppercase leading-none text-background">{item.title}</h3>
-          <p className="mt-3 text-base leading-7 text-background/80">{item.body}</p>
-        </article>
-      ))}
-    </div>
+    <article className="rounded-[20px] border border-background/10 bg-background/6 p-5 backdrop-blur-sm">
+      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary/16 text-secondary">{icon}</div>
+      <h3 className="mt-4 font-heading text-2xl uppercase leading-none text-background">{title}</h3>
+      <p className="mt-3 text-base leading-7 text-background/80">{body}</p>
+    </article>
   );
 }
 
 export function VisitFacts() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      {[
-        { icon: <Clock3 className="h-5 w-5" />, title: "Hours", body: "Monday–Thursday: 12pm–9pm · Friday: 12pm–10pm · Saturday: 11am–10pm · Sunday: 11am–8pm" },
-        { icon: <UtensilsCrossed className="h-5 w-5" />, title: "Food", body: "Smoked brisket sliders, loaded hand-cut fries, and charred seasonal flatbread." },
-        { icon: <ParkingCircle className="h-5 w-5" />, title: "Parking", body: "On-site parking available. Extra bike parking near the side entrance." },
-        { icon: <MapPin className="h-5 w-5" />, title: "Views", body: "Instagram: @basecampbrewingco · Scenic outlooks from the Queenstown taproom seating." },
-      ].map((item) => (
-        <article key={item.title} className="rounded-[20px] border border-text/8 bg-background p-5 shadow-soft">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary/12 text-secondary">{item.icon}</div>
-          <h3 className="mt-4 font-heading text-2xl uppercase leading-none">{item.title}</h3>
-          <p className="mt-3 text-base leading-7 text-text/76">{item.body}</p>
-        </article>
-      ))}
+    <div className="rounded-[32px] border border-text/8 bg-background p-6 shadow-soft">
+      <p className="text-sm uppercase tracking-[0.18em] text-secondary">14 Shotover View Road, Queenstown 9300, New Zealand</p>
+      <div className="mt-5 grid gap-4 text-sm text-text/74 sm:grid-cols-2">
+        <div className="rounded-[20px] border border-text/8 p-4">
+          <p className="font-semibold uppercase tracking-[0.16em] text-primary">Taproom Hours</p>
+          <ul className="mt-3 space-y-2">
+            <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-secondary" /> Monday–Thursday · 12pm–9pm</li>
+            <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-secondary" /> Friday · 12pm–10pm</li>
+            <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-secondary" /> Saturday · 11am–10pm</li>
+            <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-secondary" /> Sunday · 11am–8pm</li>
+          </ul>
+        </div>
+        <div className="rounded-[20px] border border-text/8 p-4">
+          <p className="font-semibold uppercase tracking-[0.16em] text-primary">Reach Us</p>
+          <ul className="mt-3 space-y-2">
+            <li className="flex items-center gap-3"><PhoneCall className="h-4 w-4 text-secondary" /> +64 3 441 0284</li>
+            <li className="flex items-center gap-3"><ParkingCircle className="h-4 w-4 text-secondary" /> On-site parking available</li>
+            <li className="flex items-center gap-3"><Trees className="h-4 w-4 text-secondary" /> Instagram: @basecampbrewingco</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
+}
+
+export function SustainabilityIcons() {
+  return [
+    <Leaf key="leaf" className="h-5 w-5" />,
+    <Droplets key="drops" className="h-5 w-5" />,
+    <Wheat key="wheat" className="h-5 w-5" />,
+  ];
 }
