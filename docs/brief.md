@@ -2,35 +2,38 @@
 
 ## Business
 - **Name:** Basecamp Brewing Co.
-- **Location:** Bend, Oregon
-- **Tagline:** Craft beer for the trail back.
+- **Location:** Queenstown, New Zealand
+- **Tagline:** Small-batch alpine beer. Poured at the edge of adventure.
 
 ## What They Do
-Basecamp Brewing Co. is a mountain-town craft brewery built around the ritual of coming down from the ridge, dusting off your boots, and earning a pint that tastes like it belongs to the landscape. They brew small-batch IPAs, crisp lagers, dark seasonal ales, and rotating adventure-driven releases inspired by alpine mornings, pine forests, campfire nights, and summit views. The taproom is part brewery, part gathering lodge — a place where hikers, skiers, climbers, cyclists, and locals trade route tips over fresh pours and wood-fired snacks.
+Basecamp Brewing Co. is a craft brewery and taproom shaped by the Southern Alps and the rhythm of Queenstown life. They brew small-batch lagers, pale ales, IPAs, stouts, and seasonal releases that feel crisp, grounded, and mountain-ready rather than overly experimental for the sake of it. The taproom pairs fresh pours with wide alpine views, hearty food, and live music on weekends — part brewery, part post-adventure meeting point, part local hangout where muddy boots and good taste are equally welcome.
 
 ## Target Audience
-- Outdoor-first locals in Bend who want a brewery with real craft credibility, not tourist-trap energy
-- Visiting hikers, skiers, mountain bikers, climbers, and van-life travelers looking for a memorable post-adventure stop
-- Craft beer enthusiasts who care about brewing process, seasonal releases, and tasting notes
-- Small groups planning casual events, release nights, trail-club meetups, and live-music evenings
-- Adults 28–55 who like rugged atmosphere, strong design, and hospitality that feels warm instead of polished-for-show
+- Queenstown locals aged 25–45 who want a dependable taproom with real beer quality, not a generic tourist stop
+- Domestic and international visitors looking for a memorable brewery stop after hiking, biking, skiing, lake days, or scenic drives
+- Outdoor-minded professionals and friend groups who value atmosphere, design, good food, and an easy social scene
+- Craft beer drinkers who appreciate tasting notes and variety but want descriptions that stay accessible, not pretentious
+- Event-goers drawn to relaxed live music, release nights, and community energy with a regional identity
 
 ## Brand Voice
-Rugged but welcoming. Honest. Grounded. Confident without chest-thumping. The brand should sound like an experienced trail guide who knows good beer, gives straight recommendations, and makes everyone feel like they belong around the fire.
+Relaxed and knowledgeable. Friendly without trying too hard. Grounded, outdoorsy, and quietly confident. The brand should sound like someone who knows beer well, knows the local trails, and can recommend both without making anyone feel excluded.
 
 ## Pages Needed
-- **Home:** Big brand introduction, featured beers, taproom atmosphere, upcoming events, and a strong invitation to visit.
-- **Our Beers:** Core lineup and rotating releases with tasting notes, style, ABV, and seasonal personality.
-- **The Taproom:** Interior feel, food/snack offering, hours, amenities, and what the in-person experience is like.
-- **Events:** Live music, release parties, community nights, and brewery happenings with clear dates and details.
-- **Contact:** Visit info, map, hours, contact form, and practical questions answered fast.
+- **Home:** Hero-led landing page with mountain/taproom imagery, featured beers carousel, events preview, and newsletter signup.
+- **Our Beers:** Filterable beer grid with style, ABV, tasting notes, and illustrated label-art placeholders.
+- **The Taproom:** Space overview with gallery, hours, food highlights, and map placeholder.
+- **Events:** Upcoming live music, release nights, and community events listed clearly by date and time.
+- **Contact:** Form, address, phone, social links, and map placeholder for practical visit planning.
 
 ## Specific Requirements from Client Brief
-- Build documentation for a **Next.js 14 App Router + Tailwind CSS + TypeScript** site
-- Site must be **mobile-first**, **SEO-ready**, and prepared for **structured data**
+- Build docs for a **Next.js 14 App Router + Tailwind CSS + TypeScript** site
+- Vercel deployment target: **`basecamp-brewing`**
+- Site must be **mobile-first**, **SEO-ready**, and include **LocalBusiness + brewery structured data**
 - Required pages: **Home, Our Beers, The Taproom, Events, Contact**
-- Brand direction: **craft authenticity meets mountain adventure**
-- Logo concept: **mountain peak silhouette with hop cone integrated into the summit**
-- Favicon: **simplified hop cone in alpine green**
-- Required palette anchors: **Alpine green `#2D5016`, Cream `#FFF8E7`, Charcoal `#1A1A1A`, Copper `#B87333`**
-- Typography direction: **Oswald-style bold condensed sans serif for headings** and **Source Serif Pro-style warm readable serif for body text**
+- Home must include **full-width hero**, **featured beers carousel**, **upcoming events preview**, and **newsletter signup**
+- Beers page must support style filters: **Lager, Pale Ale, IPA, Stout, Seasonal**
+- Taproom and Contact pages need **embedded map placeholders**
+- Brand direction: **rugged but welcoming**, **craft authenticity meets mountain adventure**, **lodge bar meets modern brewery**
+- Must emphasize **Queenstown**, **mountain lifestyle**, and a **sustainability angle** using local ingredients and spent grain donated to local farms
+- Brand anchors provided by client: **Alpine green `#2D5016`, Cream `#FFF8E7`, Charcoal `#1A1A1A`, Copper `#B87333`**
+- Typography direction: **Oswald or similar** for headings and **Source Serif Pro / Source Serif 4 or similar** for body copy
