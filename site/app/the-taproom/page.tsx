@@ -2,28 +2,35 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { AmenityGrid, FoodHighlightCard, HoursCard, MapPlaceholder, SectionIntro, StructuredData } from "@/components/ui";
-import { businessSchema, siteUrl } from "@/lib/site-data";
+import { businessSchema, primaryKeywords, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "The Taproom | Basecamp Brewing Co.",
+  title: "Taproom in Queenstown | Basecamp Brewing Co.",
   description:
-    "See the Basecamp Brewing Co. taproom in Queenstown — mountain views, food highlights, opening hours, and a welcoming lodge-style brewery atmosphere.",
+    "Visit the Basecamp Brewing Co. taproom in Queenstown for craft beer, food, opening hours, mountain views, and live music weekends.",
+  keywords: ["taproom Queenstown", "Queenstown brewery taproom", "craft beer bar Queenstown", ...primaryKeywords],
   alternates: {
     canonical: `${siteUrl}/the-taproom/`,
   },
   openGraph: {
-    title: "The Taproom | Basecamp Brewing Co.",
+    title: "Taproom in Queenstown | Basecamp Brewing Co.",
     description:
-      "See the Basecamp Brewing Co. taproom in Queenstown — mountain views, food highlights, opening hours, and a welcoming lodge-style brewery atmosphere.",
+      "See the Basecamp Brewing Co. Queenstown taproom with mountain views, food highlights, opening hours, and brewery atmosphere.",
     url: `${siteUrl}/the-taproom/`,
     images: [
       {
         url: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&h=1400&fit=crop",
         width: 1200,
         height: 1400,
-        alt: "Rustic-modern restaurant and bar interior with warm lighting",
+        alt: "Basecamp Brewing Co. taproom interior in Queenstown",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taproom in Queenstown | Basecamp Brewing Co.",
+    description:
+      "Visit the Basecamp Brewing Co. taproom in Queenstown for beer, food, mountain views, and live music weekends.",
   },
 };
 
@@ -40,7 +47,7 @@ export default function TaproomPage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <div className="order-2 space-y-6 lg:order-1">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">The Taproom</p>
-            <h1 className="font-heading text-5xl uppercase leading-[0.92] text-text sm:text-6xl lg:text-[4.5rem]">Built for the after part of the adventure.</h1>
+            <h1 className="font-heading text-5xl uppercase leading-[0.92] text-text sm:text-6xl lg:text-[4.5rem]">Taproom in Queenstown built for the after part of the adventure.</h1>
             <p className="text-lg leading-8 text-text/78">Basecamp’s taproom brings together small-batch beer, mountain views, solid food, and a crowd that ranges from post-trail locals to first-time visitors who found the right stop.</p>
             <Link href="/contact/" className="inline-flex items-center gap-3 rounded-full bg-secondary px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background transition hover:-translate-y-0.5 hover:bg-[#c9854d]">
               Plan Your Visit
@@ -50,7 +57,7 @@ export default function TaproomPage() {
           <div className="order-1 overflow-hidden rounded-[32px] border border-text/8 shadow-medium lg:order-2">
             <img
               src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&h=1400&fit=crop"
-              alt="Rustic-modern restaurant and bar interior with warm lighting"
+              alt="Basecamp Brewing Co. Queenstown taproom with warm lighting and brewery seating"
               className="h-[520px] w-full object-cover"
             />
           </div>
@@ -64,7 +71,7 @@ export default function TaproomPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=900&h=1100&fit=crop"
-                alt="Friends sitting together in a warmly lit bar"
+                alt="Guests enjoying the Basecamp Brewing Co. taproom in Queenstown"
                 className="h-full min-h-[460px] w-full object-cover transition duration-200 hover:scale-[1.02]"
               />
             </div>
@@ -72,14 +79,14 @@ export default function TaproomPage() {
               <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
                 <img
                   src="https://images.unsplash.com/photo-1532635241-17e820acc59f?w=900&h=900&fit=crop"
-                  alt="Beer taps and bar counter close-up"
+                  alt="Craft beer taps at the Basecamp Brewing Co. Queenstown taproom"
                   className="h-[220px] w-full object-cover transition duration-200 hover:scale-[1.02] sm:h-[260px]"
                 />
               </div>
               <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
                 <img
                   src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=900&h=1200&fit=crop"
-                  alt="Outdoor patio dining area under hanging lights"
+                  alt="Outdoor seating area at a Queenstown brewery taproom"
                   className="h-[220px] w-full object-cover transition duration-200 hover:scale-[1.02] sm:h-[260px]"
                 />
               </div>
@@ -105,7 +112,7 @@ export default function TaproomPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&h=900&fit=crop"
-                alt="Elevated pub food with drinks on a wood table"
+                alt="Taproom food and craft beer at Basecamp Brewing Co. in Queenstown"
                 className="h-72 w-full object-cover"
               />
             </div>
@@ -130,7 +137,7 @@ export default function TaproomPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop"
-                alt="Forested mountain landscape in golden light"
+                alt="Mountain scenery surrounding the Basecamp Brewing Co. Queenstown location"
                 className="h-56 w-full object-cover"
               />
             </div>

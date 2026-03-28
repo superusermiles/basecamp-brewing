@@ -2,28 +2,35 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, Music2, Sparkles, Users } from "lucide-react";
 import { EventListItem, StructuredData } from "@/components/ui";
-import { businessSchema, eventSchema, siteUrl, upcomingEvents } from "@/lib/site-data";
+import { businessSchema, eventSchema, primaryKeywords, siteUrl, upcomingEvents } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Events | Basecamp Brewing Co.",
+  title: "Brewery Events in Queenstown | Basecamp Brewing Co.",
   description:
-    "Check upcoming live music, release nights, and community events at Basecamp Brewing Co. in Queenstown, New Zealand.",
+    "See brewery events in Queenstown at Basecamp Brewing Co., including live music, seasonal release nights, and community taproom gatherings.",
+  keywords: ["Queenstown events brewery", "live music Queenstown brewery", "taproom events Queenstown", ...primaryKeywords],
   alternates: {
     canonical: `${siteUrl}/events/`,
   },
   openGraph: {
-    title: "Events | Basecamp Brewing Co.",
+    title: "Brewery Events in Queenstown | Basecamp Brewing Co.",
     description:
-      "Check upcoming live music, release nights, and community events at Basecamp Brewing Co. in Queenstown, New Zealand.",
+      "Check upcoming live music, release nights, and community events at Basecamp Brewing Co. in Queenstown.",
     url: `${siteUrl}/events/`,
     images: [
       {
         url: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&h=900&fit=crop",
         width: 1600,
         height: 900,
-        alt: "Stage with instruments and concert lighting",
+        alt: "Live music event at a Queenstown brewery",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brewery Events in Queenstown | Basecamp Brewing Co.",
+    description:
+      "Check upcoming live music, release nights, and community events at Basecamp Brewing Co. in Queenstown.",
   },
 };
 
@@ -34,14 +41,14 @@ export default function EventsPage() {
       <section className="relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&h=900&fit=crop"
-          alt="Stage with instruments and concert lighting"
+          alt="Live music stage for brewery events in Queenstown"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-text/90 via-text/76 to-text/52" />
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 md:py-32 lg:px-8 lg:py-36">
           <div className="max-w-3xl text-background">
             <p className="text-sm font-semibold uppercase tracking-[0.26em] text-secondary">Events</p>
-            <h1 className="mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Weekends sound better here.</h1>
+            <h1 className="mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Brewery events in Queenstown with live music and seasonal releases.</h1>
             <p className="mt-6 text-lg leading-8 text-background/84">The calendar keeps things active without feeling overprogrammed — live music, release nights, and community meet-ups that fit the taproom naturally.</p>
           </div>
         </div>
@@ -52,7 +59,7 @@ export default function EventsPage() {
           <article className="grid overflow-hidden rounded-[32px] border border-text/8 bg-[#f7efdd] shadow-medium lg:grid-cols-[1.05fr_0.95fr]">
             <img
               src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&h=900&fit=crop"
-              alt="Acoustic musician performing in a small venue"
+              alt="Live acoustic set at Basecamp Brewing Co. in Queenstown"
               className="h-full min-h-[320px] w-full object-cover"
             />
             <div className="p-6 sm:p-8 lg:p-10">
@@ -86,7 +93,7 @@ export default function EventsPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=800&fit=crop"
-                alt="Crowd at a live event under warm lighting"
+                alt="Crowd at a Basecamp Brewing Co. Queenstown event"
                 className="h-80 w-full object-cover"
               />
             </div>
@@ -107,21 +114,21 @@ export default function EventsPage() {
                 title: "Live Music Fridays",
                 body: "Acoustic-forward sets that suit the room and the view.",
                 image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1000&h=800&fit=crop",
-                alt: "Group of friends at a concert or social gathering",
+                alt: "Live music crowd at a Queenstown brewery event",
                 icon: <Music2 className="h-5 w-5" />,
               },
               {
                 title: "Release Nights",
                 body: "Fresh seasonal pours introduced by the brewers themselves.",
                 image: "https://images.unsplash.com/photo-1521334884684-d80222895322?w=1000&h=800&fit=crop",
-                alt: "People raising drinks in a dimly lit venue",
+                alt: "Guests raising craft beer glasses at a Basecamp Brewing Co. release night",
                 icon: <Sparkles className="h-5 w-5" />,
               },
               {
                 title: "Community Meet-Ups",
                 body: "Outdoor crowd energy, local regulars, and easy reasons to come back.",
                 image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1000&h=800&fit=crop",
-                alt: "Group of friends at a concert or social gathering",
+                alt: "Community gathering at a Queenstown brewery taproom",
                 icon: <Users className="h-5 w-5" />,
               },
             ].map((item) => (
@@ -141,7 +148,7 @@ export default function EventsPage() {
       <section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
         <img
           src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1400&h=700&fit=crop"
-          alt="Long communal dining table prepared for a private gathering"
+          alt="Private gathering setup at Basecamp Brewing Co. in Queenstown"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-text/72" />

@@ -21,6 +21,7 @@ export type EventItem = {
 };
 
 export const siteUrl = "https://basecamp-brewing.vercel.app";
+export const lastModified = "2026-03-28T00:00:00.000Z";
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
@@ -120,20 +121,56 @@ export const upcomingEvents: EventItem[] = [
   { title: "Brewery Birthday Social", date: "Friday, 1 May", time: "6pm", description: "Anniversary pours, throwback favorites, and special merch.", category: "Special" },
 ];
 
+export const primaryKeywords = [
+  "Queenstown craft brewery",
+  "Queenstown brewery",
+  "Queenstown taproom",
+  "craft beer Queenstown",
+  "brewery Queenstown NZ",
+  "small-batch beer Queenstown",
+  "Queenstown beer tasting",
+  "live music Queenstown brewery",
+];
+
+export const longTailKeywords = [
+  "small-batch brewery in Queenstown",
+  "taproom with mountain views in Queenstown",
+  "craft beer and food in Queenstown",
+  "Queenstown brewery with live music",
+  "best taproom in Queenstown NZ",
+  "Queenstown brewery near me",
+  "brewery with seasonal beer in Queenstown",
+  "where to drink craft beer in Queenstown",
+];
+
 export const businessSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Brewery"],
+  "@type": ["FoodEstablishment", "Brewery"],
+  "@id": `${siteUrl}/#business`,
   name: "Basecamp Brewing Co.",
-  image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&h=1100&fit=crop",
+  description:
+    "Basecamp Brewing Co. is a Queenstown craft brewery and taproom pouring small-batch alpine beer with hearty food, mountain views, and weekend live music.",
+  image: [
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&h=1100&fit=crop",
+    "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1200&h=1400&fit=crop",
+  ],
   url: siteUrl,
   telephone: "+64 3 441 0284",
   email: "hello@basecampbrewing.co.nz",
+  priceRange: "$$",
+  servesCuisine: ["Craft Beer", "Taproom Fare"],
   address: {
     "@type": "PostalAddress",
     streetAddress: "14 Shotover View Road",
     addressLocality: "Queenstown",
+    addressRegion: "Otago",
     postalCode: "9300",
     addressCountry: "NZ",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -45.0212,
+    longitude: 168.739,
   },
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "12:00", closes: "21:00" },
@@ -141,16 +178,38 @@ export const businessSchema = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "11:00", closes: "22:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "11:00", closes: "20:00" },
   ],
-  servesCuisine: ["Brewery", "Taproom Fare"],
+  areaServed: [
+    { "@type": "City", name: "Queenstown" },
+    { "@type": "AdministrativeArea", name: "Otago" },
+    { "@type": "Place", name: "Southern Alps" },
+  ],
   sameAs: ["https://instagram.com/basecampbrewingco"],
-  priceRange: "$$",
 };
+
+const monthMap: Record<string, string> = {
+  April: "04",
+  May: "05",
+};
+
+function eventStartDate(date: string, time: string) {
+  const day = date.match(/\d+/)?.[0]?.padStart(2, "0") ?? "15";
+  const monthName = Object.keys(monthMap).find((month) => date.includes(month)) ?? "April";
+  const month = monthMap[monthName];
+  const isPm = time.includes("pm");
+  const [rawHour, rawMinute = "00"] = time.replace("am", "").replace("pm", "").split(":");
+  let hour = Number(rawHour);
+
+  if (isPm && hour < 12) hour += 12;
+  if (!isPm && hour === 12) hour = 0;
+
+  return `2026-${month}-${day}T${String(hour).padStart(2, "0")}:${rawMinute}:00+12:00`;
+}
 
 export const eventSchema = upcomingEvents.map((event) => ({
   "@context": "https://schema.org",
   "@type": "Event",
   name: event.title,
-  startDate: `2026-${event.date.includes("May") ? "05" : "04"}-${event.date.match(/\d+/)?.[0]?.padStart(2, "0") ?? "15"}T${event.time.includes(":") ? event.time.replace("pm", ":00") : `${event.time.replace("pm", "")}:00`}:00`,
+  startDate: eventStartDate(event.date, event.time),
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   eventStatus: "https://schema.org/EventScheduled",
   location: {

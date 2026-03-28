@@ -53,14 +53,14 @@ export function HomeHero() {
     <section className="relative overflow-hidden">
       <img
         src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&h=1100&fit=crop"
-        alt="Snow-dusted mountain range under warm evening light"
+        alt="Queenstown craft brewery setting with snow-dusted alpine mountains behind Basecamp Brewing Co."
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="hero-overlay absolute inset-0" />
       <div className="relative mx-auto grid min-h-[88svh] max-w-7xl items-end gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.7fr] lg:px-8 lg:py-28">
         <div className="max-w-3xl pb-2 text-background lg:pb-14">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">Queenstown, New Zealand</p>
-          <h1 className="prose-balance mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Craft beer with a summit view.</h1>
+          <h1 className="prose-balance mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Queenstown craft brewery for alpine beer and taproom sessions.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-background/86">
             Basecamp Brewing Co. brews small-batch beer inspired by the Southern Alps and pours it in a Queenstown taproom built for locals, visitors, and anyone coming down from a day outside.
           </p>
@@ -249,7 +249,7 @@ export function MapPlaceholder({ label, note }: { label: string; note: string })
   return (
     <div className="relative min-h-[340px] overflow-hidden rounded-[32px] border border-text/10 bg-text p-6 text-background shadow-medium">
       <div className="absolute inset-0 opacity-35">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop" alt="Forested mountain landscape in golden light" className="h-full w-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&h=800&fit=crop" alt="Queenstown mountain landscape near the Basecamp Brewing Co. taproom" className="h-full w-full object-cover" />
       </div>
       <div className="relative flex h-full flex-col justify-between gap-10">
         <div>
@@ -403,7 +403,7 @@ export function VisitFacts() {
         { icon: <Clock3 className="h-5 w-5" />, title: "Hours", body: "Monday–Thursday: 12pm–9pm · Friday: 12pm–10pm · Saturday: 11am–10pm · Sunday: 11am–8pm" },
         { icon: <UtensilsCrossed className="h-5 w-5" />, title: "Food", body: "Smoked brisket sliders, loaded hand-cut fries, and charred seasonal flatbread." },
         { icon: <ParkingCircle className="h-5 w-5" />, title: "Parking", body: "On-site parking available. Extra bike parking near the side entrance." },
-        { icon: <MapPin className="h-5 w-5" />, title: "Views", body: "Instagram: @basecampbrewingco · Scenic outlooks from the taproom seating." },
+        { icon: <MapPin className="h-5 w-5" />, title: "Views", body: "Instagram: @basecampbrewingco · Scenic outlooks from the Queenstown taproom seating." },
       ].map((item) => (
         <article key={item.title} className="rounded-[20px] border border-text/8 bg-background p-5 shadow-soft">
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary/12 text-secondary">{item.icon}</div>

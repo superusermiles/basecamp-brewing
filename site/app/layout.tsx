@@ -4,7 +4,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
-import { businessSchema } from "@/lib/site-data";
+import { businessSchema, primaryKeywords, longTailKeywords, siteUrl } from "@/lib/site-data";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -21,25 +21,24 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://basecamp-brewing.vercel.app"),
-  title: {
-    default: "Basecamp Brewing Co. | Small-Batch Alpine Beer in Queenstown",
-    template: "%s",
-  },
+  metadataBase: new URL(siteUrl),
+  title: "Queenstown Craft Brewery | Basecamp Brewing Co.",
   description:
-    "Queenstown craft brewery and taproom serving alpine-inspired small-batch beer, hearty food, mountain views, and live music on weekends.",
+    "Basecamp Brewing Co. is a Queenstown craft brewery and taproom pouring small-batch beer, hearty food, mountain views, and live music.",
   applicationName: "Basecamp Brewing Co.",
+  keywords: [...primaryKeywords, ...longTailKeywords],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.ico",
   },
+  robots: { index: true, follow: true },
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
-    title: "Basecamp Brewing Co. | Small-Batch Alpine Beer in Queenstown",
+    title: "Queenstown Craft Brewery | Basecamp Brewing Co.",
     description:
-      "Queenstown craft brewery and taproom serving alpine-inspired small-batch beer, hearty food, mountain views, and live music on weekends.",
-    url: "https://basecamp-brewing.vercel.app",
+      "Visit Basecamp Brewing Co. for small-batch alpine beer, a Queenstown taproom, hearty food, mountain views, and weekend live music.",
+    url: siteUrl,
     siteName: "Basecamp Brewing Co.",
     locale: "en_NZ",
     type: "website",
@@ -48,15 +47,15 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&h=1100&fit=crop",
         width: 1600,
         height: 1100,
-        alt: "Snow-dusted mountain range under warm evening light",
+        alt: "Queenstown craft brewery backdrop with alpine mountain views near Basecamp Brewing Co.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Basecamp Brewing Co. | Small-Batch Alpine Beer in Queenstown",
+    title: "Queenstown Craft Brewery | Basecamp Brewing Co.",
     description:
-      "Queenstown craft brewery and taproom serving alpine-inspired small-batch beer, hearty food, mountain views, and live music on weekends.",
+      "Small-batch alpine beer, a Queenstown taproom, hearty food, mountain views, and live music at Basecamp Brewing Co.",
     images: [
       "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&h=1100&fit=crop",
     ],

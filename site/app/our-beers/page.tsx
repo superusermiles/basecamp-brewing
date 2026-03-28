@@ -2,28 +2,35 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, Droplets, Leaf, Wheat } from "lucide-react";
 import { BeerFilterGrid, SectionIntro, StructuredData } from "@/components/ui";
-import { beerLineup, businessSchema, siteUrl } from "@/lib/site-data";
+import { beerLineup, businessSchema, primaryKeywords, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Our Beers | Basecamp Brewing Co.",
+  title: "Craft Beer in Queenstown | Basecamp Brewing Co.",
   description:
-    "Explore Basecamp Brewing Co.’s lagers, pale ales, IPAs, stouts, and seasonal releases with accessible tasting notes and ABV details.",
+    "Explore craft beer in Queenstown with Basecamp Brewing Co. lagers, pale ales, IPAs, stouts, and seasonal small-batch releases.",
+  keywords: ["craft beer Queenstown", "Queenstown brewery beers", "small-batch beer Queenstown", ...primaryKeywords],
   alternates: {
     canonical: `${siteUrl}/our-beers/`,
   },
   openGraph: {
-    title: "Our Beers | Basecamp Brewing Co.",
+    title: "Craft Beer in Queenstown | Basecamp Brewing Co.",
     description:
-      "Explore Basecamp Brewing Co.’s lagers, pale ales, IPAs, stouts, and seasonal releases with accessible tasting notes and ABV details.",
+      "Browse Basecamp Brewing Co. lagers, pale ales, IPAs, stouts, and seasonal releases from our Queenstown craft brewery.",
     url: `${siteUrl}/our-beers/`,
     images: [
       {
         url: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&h=900&fit=crop",
         width: 1600,
         height: 900,
-        alt: "Hand holding a craft beer in moody light",
+        alt: "Craft beer tasting at Basecamp Brewing Co. in Queenstown",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Craft Beer in Queenstown | Basecamp Brewing Co.",
+    description:
+      "Browse lagers, pale ales, IPAs, stouts, and seasonal releases from Basecamp Brewing Co. in Queenstown.",
   },
 };
 
@@ -39,14 +46,14 @@ export default function OurBeersPage() {
       <section className="relative overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&h=900&fit=crop"
-          alt="Hand holding a craft beer in moody light"
+          alt="Craft beer glass from Basecamp Brewing Co. in Queenstown"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-text/88 via-text/70 to-text/35" />
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 md:py-32 lg:px-8 lg:py-36">
           <div className="max-w-3xl text-background">
             <p className="text-sm font-semibold uppercase tracking-[0.26em] text-secondary">Our Beers</p>
-            <h1 className="mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Made for mountain weather and good company.</h1>
+            <h1 className="mt-5 font-heading text-5xl uppercase leading-[0.92] sm:text-6xl lg:text-[4.5rem]">Craft beer in Queenstown brewed for mountain weather and good company.</h1>
             <p className="mt-6 text-lg leading-8 text-background/84">Browse the current lineup by style. Tasting notes stay clear, useful, and easy to read whether you know beer deeply or just know what you like.</p>
           </div>
         </div>
@@ -59,7 +66,7 @@ export default function OurBeersPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1571767454098-246b94fbcf70?w=1000&h=900&fit=crop"
-                alt="Beer tasting flight with several styles in glasses"
+                alt="Queenstown craft beer tasting flight with several Basecamp Brewing Co. styles"
                 className="h-80 w-full object-cover"
               />
             </div>
@@ -73,7 +80,7 @@ export default function OurBeersPage() {
           <article className="overflow-hidden rounded-[32px] border border-text/8 bg-text text-background shadow-medium">
             <img
               src="https://images.unsplash.com/photo-1567696911980-2c5c4f2a9f81?w=1200&h=900&fit=crop"
-              alt="Dark beer poured beside malt and brewing ingredients"
+              alt="Seasonal dark beer release from a Queenstown brewery with malt ingredients"
               className="h-80 w-full object-cover"
             />
             <div className="p-6 sm:p-8">
@@ -107,14 +114,14 @@ export default function OurBeersPage() {
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft">
               <img
                 src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=1000&h=900&fit=crop"
-                alt="Bartender or brewer pouring from taps"
+                alt="Beer pouring at the Basecamp Brewing Co. taproom in Queenstown"
                 className="h-full min-h-[280px] w-full object-cover"
               />
             </div>
             <div className="overflow-hidden rounded-[32px] border border-text/8 shadow-soft sm:mt-12">
               <img
                 src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&h=800&fit=crop"
-                alt="Brewing tanks in a craft brewery production room"
+                alt="Brewing tanks inside the Basecamp Brewing Co. Queenstown brewery"
                 className="h-full min-h-[280px] w-full object-cover"
               />
             </div>
